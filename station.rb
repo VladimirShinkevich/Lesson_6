@@ -5,6 +5,10 @@ class Station
   attr_reader :trains , :station_name
 
   @@stations = []
+  
+  def self.all
+    @@stations
+  end
 
   def initialize(station_name)
     @station_name = station_name
@@ -27,10 +31,6 @@ class Station
 
   def show_passenger_trains
     @trains.select { |train| train.train_type == :passenger }
-  end
-
-  def self.all
-    @@stations
   end
 
 end
