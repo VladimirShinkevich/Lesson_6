@@ -8,7 +8,7 @@ module InstanceCounter
   module ClassMethods
     attr_writer :instances
     def instances
-      @instances = 0
+      @instances ||= 0
     end
   end
 
