@@ -7,6 +7,10 @@ class Train
   attr_reader :speed, :current_station, :route, :number, :train_type, :wagons
 
   @@trains = []
+  
+  def self.find(number)
+    @@trains.select { |train| train.number == number }
+  end
 
   private
 
@@ -69,10 +73,6 @@ class Train
     @current_station.train_send(self)
     @current_station = prev_station
     @current_station.train_arrived(self)
-  end
-
-  def self.find(number)
-    @@trains.select { |train| train.number == number }
   end
 
 end
